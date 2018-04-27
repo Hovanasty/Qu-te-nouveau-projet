@@ -12,6 +12,13 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Reservation
 {
+    // Adding personal methods / variables
+    public function __toString()
+    {
+        // Return  the site object with  "[] - [] - [] format, when __toString is called.
+        return $this->id;
+    }
+
     /**
      * @var int
      *
@@ -125,4 +132,3 @@ class Reservation
         return $this->wasDone;
     }
 }
-

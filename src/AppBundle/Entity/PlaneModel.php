@@ -12,6 +12,19 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class PlaneModel
 {
+
+    // Adding personal methods / variables
+    public function __toString()
+    {
+        // Return  the site object with  "[] - [] - [] format, when __toString is called.
+        return $this->plane. " - " . $this->model;
+    }
+
+    private $plane;
+    /**
+     * @ORM\OneToMany(targetEntity="AppBundle\Entity\Flight", mappedBy="plane")
+     */
+
     /**
      * @var int
      *
@@ -156,4 +169,3 @@ class PlaneModel
         return $this->planeNbSeats;
     }
 }
-

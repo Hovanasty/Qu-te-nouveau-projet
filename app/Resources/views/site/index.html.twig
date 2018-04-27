@@ -6,7 +6,7 @@
     <table>
         <thead>
             <tr>
-                <th>Id</th>
+                <th>Arrival</th>
                 <th>Name</th>
                 <th>Icao</th>
                 <th>Latitude</th>
@@ -18,7 +18,7 @@
         <tbody>
         {% for site in sites %}
             <tr>
-                <td><a href="{{ path('site_show', { 'id': site.id }) }}">{{ site.id }}</a></td>
+                <td><a href="{{ path('site_show', { 'arrival': site.arrival }) }}">{{ site.arrival }}</a></td>
                 <td>{{ site.name }}</td>
                 <td>{{ site.icao }}</td>
                 <td>{{ site.latitude }}</td>
@@ -27,7 +27,10 @@
                 <td>
                     <ul>
                         <li>
-                            <a href="{{ path('site_show', { 'id': site.id }) }}">show</a>
+                            <a href="{{ path('site_show', { 'arrival': site.arrival }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('site_edit', { 'arrival': site.arrival }) }}">edit</a>
                         </li>
                     </ul>
                 </td>
@@ -36,5 +39,9 @@
         </tbody>
     </table>
 
-    
+    <ul>
+        <li>
+            <a href="{{ path('site_new') }}">Create a new site</a>
+        </li>
+    </ul>
 {% endblock %}

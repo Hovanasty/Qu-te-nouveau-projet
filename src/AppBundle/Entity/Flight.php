@@ -12,6 +12,37 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Flight
 {
+    // Adding personal methods / variables
+    public function __toString()
+    {
+        // Return  the site object with  "[] - [] - [] format, when __toString is called.
+        return $this->departure. " - " . $this->arrival;
+    }
+
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\User", inversedBy="pilot")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $pilot;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\PlaneModel", inversedBy="plane")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $plane;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Site", inversedBy="arrival")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $arrival;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Site", inversedBy="departures")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $departure;
+
     /**
      * @var int
      *
@@ -217,5 +248,100 @@ class Flight
     {
         return $this->wasDone;
     }
-}
 
+    /**
+     * Set departure
+     *
+     * @param \AppBundle\Entity\Site $departure
+     *
+     * @return Flight
+     */
+    public function setDeparture(\AppBundle\Entity\Site $departure)
+    {
+        $this->departure = $departure;
+
+        return $this;
+    }
+
+    /**
+     * Get departure
+     *
+     * @return \AppBundle\Entity\Site
+     */
+    public function getDeparture()
+    {
+        return $this->departure;
+    }
+
+    /**
+     * Set pilot
+     *
+     * @param \AppBundle\Entity\User $pilot
+     *
+     * @return Flight
+     */
+    public function setPilot(\AppBundle\Entity\User $pilot)
+    {
+        $this->pilot = $pilot;
+
+        return $this;
+    }
+
+    /**
+     * Get pilot
+     *
+     * @return \AppBundle\Entity\User
+     */
+    public function getPilot()
+    {
+        return $this->pilot;
+    }
+
+    /**
+     * Set plane
+     *
+     * @param \AppBundle\Entity\PlaneModel $plane
+     *
+     * @return Flight
+     */
+    public function setPlane(\AppBundle\Entity\PlaneModel $plane)
+    {
+        $this->plane = $plane;
+
+        return $this;
+    }
+
+    /**
+     * Get plane
+     *
+     * @return \AppBundle\Entity\PlaneModel
+     */
+    public function getPlane()
+    {
+        return $this->plane;
+    }
+
+    /**
+     * Set arrival
+     *
+     * @param \AppBundle\Entity\Site $arrival
+     *
+     * @return Flight
+     */
+    public function setArrival(\AppBundle\Entity\Site $arrival)
+    {
+        $this->arrival = $arrival;
+
+        return $this;
+    }
+
+    /**
+     * Get arrival
+     *
+     * @return \AppBundle\Entity\Site
+     */
+    public function getArrival()
+    {
+        return $this->arrival;
+    }
+}

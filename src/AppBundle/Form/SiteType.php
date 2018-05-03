@@ -13,7 +13,7 @@ class SiteType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('name')->add('icao')->add('latitude')->add('longitute')->add('city');
+        $builder->add('name')->add('icao')->add('latitude')->add('longitude')->add('city');
     }/**
      * {@inheritdoc}
      */

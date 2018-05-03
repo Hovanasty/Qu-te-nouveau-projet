@@ -20,10 +20,11 @@ class PlaneModel
         return $this->plane. " - " . $this->model;
     }
 
-    private $plane;
+
     /**
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\Flight", mappedBy="plane")
      */
+    private $plane;
 
     /**
      * @var int
@@ -44,9 +45,9 @@ class PlaneModel
     /**
      * @var string
      *
-     * @ORM\Column(name="manufactured", type="string", length=64, nullable=true)
+     * @ORM\Column(name="manufacturer", type="string", length=64, nullable=true)
      */
-    private $manufactured;
+    private $manufacturer;
 
     /**
      * @var int
@@ -61,6 +62,13 @@ class PlaneModel
      * @ORM\Column(name="planeNbSeats", type="smallint")
      */
     private $planeNbSeats;
+
+    /**
+     * @var bool
+     *
+     * @ORM\Column(name="isAvailable", type="boolean")
+     */
+    private $isAvailable;
 
 
     /**
@@ -167,5 +175,94 @@ class PlaneModel
     public function getPlaneNbSeats()
     {
         return $this->planeNbSeats;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->plane = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Set manufacturer
+     *
+     * @param string $manufacturer
+     *
+     * @return PlaneModel
+     */
+    public function setManufacturer($manufacturer)
+    {
+        $this->manufacturer = $manufacturer;
+
+        return $this;
+    }
+
+    /**
+     * Get manufacturer
+     *
+     * @return string
+     */
+    public function getManufacturer()
+    {
+        return $this->manufacturer;
+    }
+
+    /**
+     * Add plane
+     *
+     * @param \AppBundle\Entity\Flight $plane
+     *
+     * @return PlaneModel
+     */
+    public function addPlane(\AppBundle\Entity\Flight $plane)
+    {
+        $this->plane[] = $plane;
+
+        return $this;
+    }
+
+    /**
+     * Remove plane
+     *
+     * @param \AppBundle\Entity\Flight $plane
+     */
+    public function removePlane(\AppBundle\Entity\Flight $plane)
+    {
+        $this->plane->removeElement($plane);
+    }
+
+    /**
+     * Get plane
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getPlane()
+    {
+        return $this->plane;
+    }
+
+    /**
+     * Set isAvailable
+     *
+     * @param boolean $isAvailable
+     *
+     * @return PlaneModel
+     */
+    public function setIsAvailable($isAvailable)
+    {
+        $this->isAvailable = $isAvailable;
+
+        return $this;
+    }
+
+    /**
+     * Get isAvailable
+     *
+     * @return boolean
+     */
+    public function getIsAvailable()
+    {
+        return $this->isAvailable;
     }
 }

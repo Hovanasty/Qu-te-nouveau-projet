@@ -8,9 +8,10 @@
             <tr>
                 <th>Id</th>
                 <th>Model</th>
-                <th>Manufactured</th>
+                <th>Manufacturer</th>
                 <th>Cruisespeed</th>
                 <th>Planenbseats</th>
+                <th>Isavailable</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -19,9 +20,10 @@
             <tr>
                 <td><a href="{{ path('planemodel_show', { 'id': planeModel.id }) }}">{{ planeModel.id }}</a></td>
                 <td>{{ planeModel.model }}</td>
-                <td>{{ planeModel.manufactured }}</td>
+                <td>{{ planeModel.manufacturer }}</td>
                 <td>{{ planeModel.cruiseSpeed }}</td>
                 <td>{{ planeModel.planeNbSeats }}</td>
+                <td>{% if planeModel.isAvailable %}Yes{% else %}No{% endif %}</td>
                 <td>
                     <ul>
                         <li>

@@ -48,7 +48,7 @@ class SiteController extends Controller
             $em->persist($site);
             $em->flush();
 
-            return $this->redirectToRoute('site_show', array('arrival' => $site->getArrival()));
+            return $this->redirectToRoute('site_show', array('id' => $site->getId()));
         }
 
         return $this->render('site/new.html.twig', array(
@@ -60,7 +60,7 @@ class SiteController extends Controller
     /**
      * Finds and displays a site entity.
      *
-     * @Route("/{arrival}", name="site_show")
+     * @Route("/{id}", name="site_show")
      * @Method("GET")
      */
     public function showAction(Site $site)
@@ -76,7 +76,7 @@ class SiteController extends Controller
     /**
      * Displays a form to edit an existing site entity.
      *
-     * @Route("/{arrival}/edit", name="site_edit")
+     * @Route("/{id}/edit", name="site_edit")
      * @Method({"GET", "POST"})
      */
     public function editAction(Request $request, Site $site)
@@ -88,7 +88,7 @@ class SiteController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('site_edit', array('arrival' => $site->getArrival()));
+            return $this->redirectToRoute('site_edit', array('id' => $site->getId()));
         }
 
         return $this->render('site/edit.html.twig', array(
@@ -101,7 +101,7 @@ class SiteController extends Controller
     /**
      * Deletes a site entity.
      *
-     * @Route("/{arrival}", name="site_delete")
+     * @Route("/{id}", name="site_delete")
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, Site $site)
@@ -128,7 +128,7 @@ class SiteController extends Controller
     private function createDeleteForm(Site $site)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('site_delete', array('arrival' => $site->getArrival())))
+            ->setAction($this->generateUrl('site_delete', array('id' => $site->getId())))
             ->setMethod('DELETE')
             ->getForm()
         ;

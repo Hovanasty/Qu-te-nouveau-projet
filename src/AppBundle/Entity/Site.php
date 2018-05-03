@@ -30,18 +30,19 @@ class Site
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
+    private $id;
 
-    private $arrival;
+
     /**
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\Flight", mappedBy="arrival")
      */
+    private $arrival;
 
-    private $departures;
+
     /**
      * @ORM\OneToMany(targetEntity="AppBundle\Entity\Flight", mappedBy="departure")
      */
-
-    private $id;
+    private $departures;
 
     /**
      * @var string
@@ -67,9 +68,9 @@ class Site
     /**
      * @var float
      *
-     * @ORM\Column(name="longitute", type="float")
+     * @ORM\Column(name="longitude", type="float")
      */
-    private $longitute;
+    private $longitude;
 
     /**
      * @var string
@@ -282,5 +283,53 @@ class Site
     public function removeDeparture(\AppBundle\Entity\Flight $departure)
     {
         $this->departures->removeElement($departure);
+    }
+
+    /**
+     * Set longitude
+     *
+     * @param float $longitude
+     *
+     * @return Site
+     */
+    public function setLongitude($longitude)
+    {
+        $this->longitude = $longitude;
+
+        return $this;
+    }
+
+    /**
+     * Get longitude
+     *
+     * @return float
+     */
+    public function getLongitude()
+    {
+        return $this->longitude;
+    }
+
+    /**
+     * Add arrival
+     *
+     * @param \AppBundle\Entity\Flight $arrival
+     *
+     * @return Site
+     */
+    public function addArrival(\AppBundle\Entity\Flight $arrival)
+    {
+        $this->arrival[] = $arrival;
+
+        return $this;
+    }
+
+    /**
+     * Remove arrival
+     *
+     * @param \AppBundle\Entity\Flight $arrival
+     */
+    public function removeArrival(\AppBundle\Entity\Flight $arrival)
+    {
+        $this->arrival->removeElement($arrival);
     }
 }

@@ -14,8 +14,8 @@
                 <td>{{ planeModel.model }}</td>
             </tr>
             <tr>
-                <th>Manufactured</th>
-                <td>{{ planeModel.manufactured }}</td>
+                <th>Manufacturer</th>
+                <td>{{ planeModel.manufacturer }}</td>
             </tr>
             <tr>
                 <th>Cruisespeed</th>
@@ -24,6 +24,10 @@
             <tr>
                 <th>Planenbseats</th>
                 <td>{{ planeModel.planeNbSeats }}</td>
+            </tr>
+            <tr>
+                <th>Isavailable</th>
+                <td>{% if planeModel.isAvailable %}Yes{% else %}No{% endif %}</td>
             </tr>
         </tbody>
     </table>

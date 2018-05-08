@@ -83,9 +83,9 @@ class Flight
     /**
      * @var string
      *
-     * @ORM\Column(name="descrition", type="text")
+     * @ORM\Column(name="description", type="text")
      */
-    private $descrition;
+    private $description;
 
     /**
      * @var bool
@@ -343,5 +343,29 @@ class Flight
     public function getArrival()
     {
         return $this->arrival;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     *
+     * @return Flight
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
     }
 }

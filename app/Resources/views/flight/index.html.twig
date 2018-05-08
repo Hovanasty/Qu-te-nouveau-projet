@@ -11,7 +11,7 @@
                 <th>Seatprice</th>
                 <th>Takeofftime</th>
                 <th>Publicationdate</th>
-                <th>Descrition</th>
+                <th>Description</th>
                 <th>Wasdone</th>
                 <th>Actions</th>
             </tr>
@@ -24,7 +24,7 @@
                 <td>{{ flight.seatPrice }}</td>
                 <td>{% if flight.takeOffTime %}{{ flight.takeOffTime|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>{% if flight.publicationDate %}{{ flight.publicationDate|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{{ flight.descrition }}</td>
+                <td>{{ flight.description }}</td>
                 <td>{% if flight.wasDone %}Yes{% else %}No{% endif %}</td>
                 <td>
                     <ul>

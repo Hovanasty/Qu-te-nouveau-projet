@@ -202,30 +202,6 @@ class Flight
     }
 
     /**
-     * Set descrition
-     *
-     * @param string $descrition
-     *
-     * @return Flight
-     */
-    public function setDescrition($descrition)
-    {
-        $this->descrition = $descrition;
-
-        return $this;
-    }
-
-    /**
-     * Get descrition
-     *
-     * @return string
-     */
-    public function getDescrition()
-    {
-        return $this->descrition;
-    }
-
-    /**
      * Set wasDone
      *
      * @param boolean $wasDone

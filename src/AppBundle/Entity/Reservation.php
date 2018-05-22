@@ -16,7 +16,7 @@ class Reservation
     public function __toString()
     {
         // Return  the site object with  "[] - [] - [] format, when __toString is called.
-        return $this->id;
+        return $this->flight;
     }
 
     /**

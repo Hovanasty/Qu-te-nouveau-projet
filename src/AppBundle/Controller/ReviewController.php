@@ -133,7 +133,7 @@ class ReviewController extends Controller
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('flight_edit', array('id' => $flight->getId()));
+            return $this->redirectToRoute('review_show', array('id' => $review->getId()));
         }
 
         return $this->render('flight/edit.html.twig', array(

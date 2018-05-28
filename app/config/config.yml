@@ -8,7 +8,7 @@ imports:
 parameters:
     locale: en
     unit: km
-    timeunit: heures
+    timeunit: h
 
 framework:
     #esi: ~
@@ -39,6 +39,7 @@ twig:
     strict_variables: '%kernel.debug%'
     globals:
            unit: '%unit%'
+           timeunit: '%timeunit%'
 
 # Doctrine Configuration
 doctrine:

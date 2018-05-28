@@ -76,7 +76,18 @@ class FlightInfo
     public function getTime($cruiseSpeed, $distance)
     {
 
-        $time = ($distance * 1) / $cruiseSpeed;
+
+        switch ($this->timeunit) {
+            case 'h':
+                $time = ($distance * 1) / $cruiseSpeed;
+                break;
+            case 'min':
+                $time = ($distance * 60) / $cruiseSpeed;
+                break;
+            case 'sec':
+                $time = ($distance * 3600) / $cruiseSpeed;
+                break;
+        }
 
         return $time;
     }

@@ -36,4 +36,6 @@ services:
 
     #add more service, or override services that need manual wiring
     AppBundle\Service\FlightInfo:
-        arguments: ['%unit%', '%timeunit%']
+        arguments:
+            $unit:      '%unit%'
+            $timeunit:    '%timeunit%'

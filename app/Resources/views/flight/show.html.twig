@@ -38,8 +38,8 @@
                 <td>{% if distance %}{{ distance|number_format(2,',',' ') }}{% endif %}{{ unit }}</td>
             </tr>
             <tr>
-                <th>Time</th>
-                <td>{% if time %}{{ time|number_format(2,',',' ') }}{% endif %}</td>
+                <th>Flight Duration</th>
+                <td>{% if time %}{{ time|number_format(2,',',' ') }}{% endif %} ({{ timeunit }})</td>
             </tr>
         </tbody>
     </table>

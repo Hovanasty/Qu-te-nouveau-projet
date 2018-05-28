@@ -33,3 +33,7 @@ services:
     # AppBundle\Service\ExampleService:
     #     arguments:
     #         $someArgument: 'some_value'
+
+    #add more service, or override services that need manual wiring
+    AppBundle\Service\FlightInfo:
+        arguments: ['%unit%', '%timeunit%']

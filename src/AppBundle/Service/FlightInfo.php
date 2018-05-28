@@ -10,14 +10,22 @@ class FlightInfo
     private $unit;
 
     /**
-     * constructeur
+     * @var string
+     */
+    private $timeunit;
+
+    /**
+     * Constructor
      *
      * @param string $unit Defined in config.yml
+     *
      */
-    public function __construct()
+    public function __construct($unit, $timeunit)
     {
         $this->unit = $unit;
+        $this->timeunit = $timeunit;
     }
+
 
     /**
      * Distance calculation between latitude/longitude based on Harnive's formula
@@ -40,7 +48,7 @@ class FlightInfo
         $a = sin($dLat/2) * sin($dLat/2) + cos(deg2rad($latitudeFrom)) * cos(deg2rad($latitudeTo)) * sin($dLon/2) * sin($dLon/2);
         $c = 2 * asin(sqrt($a));
 
-        switch ($this->_unit) {
+        switch ($this->unit) {
             case 'km':
                 $d = $c * $earth_radius;
                 break;
@@ -53,5 +61,23 @@ class FlightInfo
         }
 
         return $d;
+    }
+
+    /**
+     * time calculation between two site
+     * http://www.codecodex.com/wiki/Calculate_Distance_Between_Two_Points_on_a_Globe#PHP
+     *
+     * @param float $cruiseSpeed PlaneModel
+     * @param float $distance
+     *
+     *
+     * @return float
+     */
+    public function getTime($cruiseSpeed, $distance)
+    {
+
+        $time = ($distance * 1) / $cruiseSpeed;
+
+        return $time;
     }
 }

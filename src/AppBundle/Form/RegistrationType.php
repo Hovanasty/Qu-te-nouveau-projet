@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class UserType extends AbstractType
+class RegistrationType extends AbstractType
 {
     /**
      * {@inheritdoc}
@@ -14,14 +14,28 @@ class UserType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('firstName')
-            ->add('lastName')
-            ->add('phoneNumber')
-            ->add('birthDate')
-            ->add('creationDate')
-            ->add('note')
-            ->add('isACertifiedPilot');
-    }/**
+            ->add('lastname')
+            ->add('firstname');
+
+    }
+
+    public function getParent()
+    {
+        return 'FOS\UserBundle\Form\Type\RegistrationFormType';
+    }
+
+    public function getBlockPrefix()
+    {
+        return 'app_user_registration';
+    }
+
+    // For Symfony 2.x
+    public function getName()
+    {
+        return $this->getBlockPrefix();
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)
@@ -31,13 +45,14 @@ class UserType extends AbstractType
         ));
     }
 
-    /**
+    /*/**
      * {@inheritdoc}
      */
-    public function getBlockPrefix()
+    /*public function getBlockPrefix()
     {
         return 'appbundle_user';
     }
+    */
 
 
 }

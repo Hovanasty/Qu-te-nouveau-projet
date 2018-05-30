@@ -32,7 +32,8 @@ class ReviewType extends AbstractType
                         ->orderBy('u.lastName','ASC');
                 },
                 'choice_label' => 'lastName'))
-            ->add('reviewAuthor');
+            //->add('reviewAuthor')
+        ;
     }
 
     /**

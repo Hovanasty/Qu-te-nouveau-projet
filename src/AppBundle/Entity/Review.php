@@ -16,7 +16,7 @@ class Review
     public function __toString()
     {
         // Return  the site object with  "[] - [] - [] format, when __toString is called.
-        return $this->reviewAuthor.' - '.$this->text;
+        return $this->id;
     }
 
     /**

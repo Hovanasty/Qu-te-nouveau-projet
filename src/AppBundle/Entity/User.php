@@ -62,14 +62,14 @@ class User extends BaseUser
     /**
      * @var string
      *
-     * @ORM\Column(name="phoneNumber", type="string", length=32, nullable=true)
+     * @ORM\Column(name="phoneNumber", type="string", length=32)
      */
     private $phoneNumber;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="birthDate", type="date", nullable=true)
+     * @ORM\Column(name="birthDate", type="date")
      */
     private $birthDate;
 

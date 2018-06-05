@@ -26,7 +26,7 @@ class PlaneModelController extends Controller
 
         $planeModels = $em->getRepository('AppBundle:PlaneModel')->findAll();
 
-        return $this->render('planemodel/index.html.twig', array(
+        return $this->render('planemodel/message.html.twig', array(
             'planeModels' => $planeModels,
         ));
     }

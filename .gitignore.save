@@ -21,4 +21,5 @@
 # Parameters
 /app/config/parameters.yml
 /app/config/parameters.ini
-/app/config/config_dev.yml
+/app/confi/parameters.ini
+

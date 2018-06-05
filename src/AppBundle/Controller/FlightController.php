@@ -28,7 +28,7 @@ class FlightController extends Controller
 
         $flights = $em->getRepository('AppBundle:Flight')->findAll();
 
-        return $this->render('flight/index.html.twig', array(
+        return $this->render('flight/message.html.twig', array(
             'flights' => $flights,
         ));
     }

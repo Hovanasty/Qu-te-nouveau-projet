@@ -33,7 +33,7 @@ class listingController extends Controller
 
     public function indexAction(Reservation $reservation, Flight $flight, PlaneModel $planemodel)
     {
-        return $this->render('listing/index.html.twig', array(
+        return $this->render('listing/message.html.twig', array(
             'reservation' => $reservation,
             'flight' => $flight,
             'planemodel' => $planemodel

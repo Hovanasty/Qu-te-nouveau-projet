@@ -44,3 +44,9 @@ services:
             $unit:      '%unit%'
             $timeunit:    '%timeunit%'
 
+    #Service Mailer
+    # app.service.mailer:
+    # AppBundle\Service\Mailer:
+    AppBundle\Service\Mailer:
+        class: AppBundle\Service\Mailer
+
